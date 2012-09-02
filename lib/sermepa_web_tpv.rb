@@ -1,4 +1,4 @@
-require 'active_support'
+require 'active_support/core_ext/module/attribute_accessors'
 module SermepaWebTpv
 
   mattr_accessor :transaction_model_transaction_number_attribute

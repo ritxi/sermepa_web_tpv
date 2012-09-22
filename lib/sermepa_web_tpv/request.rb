@@ -3,6 +3,8 @@ require 'digest/sha1'
 
 module SermepaWebTpv
   class Request < Struct.new(:transaction, :description)
+    include SermepaWebTpv::Persistence::ActiveRecord
+
     def bank_url
       SermepaWebTpv.bank_url
     end
@@ -19,20 +21,6 @@ module SermepaWebTpv
 
     def transaction_model_amount_attribute
       SermepaWebTpv.transaction_model_amount_attribute
-    end
-
-    def transaction_number!
-      transaction.send("#{transaction_number_attribute}=", generate_transaction_number)
-    end
-
-    def transaction_number
-      transaction_number! if transaction.new_record?
-
-      transaction.send(transaction_number_attribute)
-    end
-
-    def transaction_amount
-      transaction.send(transaction_model_amount_attribute)
     end
 
     def amount
@@ -84,8 +72,6 @@ module SermepaWebTpv
       }.delete_if {|key, value| value.empty? }
     end
 
-    def generate_transaction_number
-      Time.now.strftime('%y%m%d%H%M%S')
-    end
+
   end
 end

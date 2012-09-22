@@ -37,10 +37,14 @@ module SermepaWebTpv
   @@merchant_name = '' #'shop name'
 
   mattr_accessor :redirect_success_path
-  @@redirect_success_path = '' #"/payments/success"
+  @@redirect_success_path = nil #"/payments/success"
 
   mattr_accessor :redirect_failure_path
-  @@redirect_failure_path = '' #"/payments/failure"
+  @@redirect_failure_path = nil #"/payments/failure"
+
+  autoload :Request, 'sermepa_web_tpv/request'
+  autoload :Response, 'sermepa_web_tpv/response'
 
 end
+require 'sermepa_web_tpv/persistence/active_record'
 require 'sermepa_web_tpv/railtie'

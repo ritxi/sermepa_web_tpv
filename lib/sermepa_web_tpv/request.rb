@@ -54,7 +54,7 @@ module SermepaWebTpv
       currency = SermepaWebTpv.currency
       transaction_type = SermepaWebTpv.transaction_type
       callback_url = url_for(:callback_response_path)
-      merchant_key = SermepaWebTpv.merchant_secret_key
+      merchant_secret_key = SermepaWebTpv.merchant_secret_key
       Digest::SHA1.hexdigest("#{amount}#{transaction_number}#{merchant_code}#{currency}#{transaction_type}#{callback_url}#{merchant_secret_key}").upcase
     end
 
@@ -65,8 +65,9 @@ module SermepaWebTpv
     def url_for(option)
       host = SermepaWebTpv.response_host
       path = SermepaWebTpv.send(option)
+
       if host.present? && path.present?
-        URI.join('http://', host, path)
+        URI.join("http://#{host}", path).to_s
       end
     end
 
@@ -75,7 +76,7 @@ module SermepaWebTpv
         'Ds_Merchant_Titular'      => SermepaWebTpv.merchant_name,
         'Ds_Merchant_UrlKO'        => url_for(:redirect_failure_path),
         'Ds_Merchant_UrlOK'        => url_for(:redirect_success_path)
-      }.delete_if {|key, value| value.empty? }
+      }.delete_if {|key, value| value.blank? }
     end
 
 

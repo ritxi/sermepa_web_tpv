@@ -13,6 +13,12 @@ module SermepaWebTpv
       optional_options.merge(must_options)
     end
 
+    def transact(&block)
+      generate_transaction_number!
+      yield(transaction)
+      self
+    end
+
     private
 
     def transaction_number_attribute

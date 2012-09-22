@@ -1,9 +1,13 @@
 require 'digest/sha1'
 
 module SermepaWebTpv
-  class Response < Struct.new(:transaction, :params)
+  class Response < Struct.new(:params)
     def valid?
       params[:Ds_Signature] == signature
+    end
+
+    def success?
+      params[:Ds_Response].to_i == 0
     end
 
     private

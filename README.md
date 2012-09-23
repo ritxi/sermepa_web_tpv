@@ -2,6 +2,7 @@
 
 Add simple web payment tpv to your rails application
 
+Example app source at: https://github.com/ritxi/sermepa_web_tpv_sample_app
 
 Steps to use it:
 

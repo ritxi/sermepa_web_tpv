@@ -21,5 +21,6 @@ module SermepaWebTpv
         #{SermepaWebTpv.merchant_secret_key}
       ).join
       Digest::SHA1.hexdigest(response).upcase
+    end
   end
 end

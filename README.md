@@ -24,7 +24,7 @@ Steps to use it:
 module MyApp
   class Application < Rails::Application
     config.web_tpv.bank_url = 'https://sis-t.sermepa.es:25443/sis/realizarPago'
-    config.web_tpv.response_host = 'my_application_host.com'
+    config.web_tpv.response_host = 'https://my_application_host.com'
     config.web_tpv.merchant_code = '000000000'
     config.web_tpv.terminal = 1
     config.web_tpv.callback_response_path = '/payments/validate'

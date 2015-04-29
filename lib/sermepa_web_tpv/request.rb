@@ -75,7 +75,8 @@ module SermepaWebTpv
       {
         'Ds_Merchant_Titular'      => SermepaWebTpv.merchant_name,
         'Ds_Merchant_UrlKO'        => url_for(:redirect_failure_path),
-        'Ds_Merchant_UrlOK'        => url_for(:redirect_success_path)
+        'Ds_Merchant_UrlOK'        => url_for(:redirect_success_path),
+        'Ds_Merchant_PayMethods'   => SermepaWebTpv.pay_methods
       }.delete_if {|key, value| value.blank? }
     end
 

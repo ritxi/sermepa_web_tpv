@@ -36,6 +36,7 @@ module MyApp
     config.web_tpv.transaction_type = 0
     config.web_tpv.language = '003' #Catala
     config.web_tpv.merchant_name = 'MY MERCHANT NAME'
+    config.web_tpv.pay_methods = 'C' # Only credit card
   end
 end
 ```

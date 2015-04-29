@@ -42,6 +42,9 @@ module SermepaWebTpv
   mattr_accessor :redirect_failure_path
   @@redirect_failure_path = nil #"/payments/failure"
 
+  mattr_accessor :pay_methods
+  @@pay_methods = '' # 'C' for credit card only (see official doc)
+
   autoload :Request, 'sermepa_web_tpv/request'
   autoload :Response, 'sermepa_web_tpv/response'
 

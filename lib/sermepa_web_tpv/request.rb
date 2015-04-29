@@ -67,7 +67,7 @@ module SermepaWebTpv
       path = SermepaWebTpv.send(option)
 
       if host.present? && path.present?
-        URI.join("http://#{host}", path).to_s
+        URI.join(host, path).to_s
       end
     end
 

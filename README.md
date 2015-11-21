@@ -1,6 +1,6 @@
 # Sermepa web TPV
 
-Add simple web payment tpv to your rails application
+Add simple web payment tpv to your rails application. This version is compliance with new hmac 256 signature. For older sha1 signature use version 0.0.2.
 
 Example app source at: https://github.com/ritxi/sermepa_web_tpv_sample_app
 

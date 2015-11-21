@@ -1,26 +1,37 @@
-require 'digest/sha1'
+
 
 module SermepaWebTpv
-  class Response < Struct.new(:params)
+  BASE = Struct.new(:params) unless defined?(BASE)
+  class Response < BASE
+    def transaction_number
+      merchant_parameters_hash['Ds_Order']
+    end
+
+
     def valid?
-      params[:Ds_Signature] == signature
+      params['Ds_Signature'] == signature
     end
 
     def success?
-      params[:Ds_Response].to_i == 0
+      merchant_parameters_hash['Ds_Response'].to_i == 0
     end
 
-    private
     def signature
-      response = %W(
-        #{params[:Ds_Amount]}
-        #{params[:Ds_Order]}
-        #{params[:Ds_MerchantCode]}
-        #{params[:Ds_Currency]}
-        #{params[:Ds_Response]}
-        #{SermepaWebTpv.merchant_secret_key}
-      ).join
-      Digest::SHA1.hexdigest(response).upcase
+      Signature.new(self).signature
+    end
+
+    def merchant_parameters
+      params['Ds_MerchantParameters']
+    end
+
+    def merchant_paramters_json
+      @merchant_paramters_json ||=
+        Base64.urlsafe_decode64(merchant_parameters)
+    end
+
+    def merchant_parameters_hash
+      @merchant_parameters_hash ||=
+        JSON.parse(merchant_paramters_json)
     end
   end
 end

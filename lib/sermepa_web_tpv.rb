@@ -47,6 +47,7 @@ module SermepaWebTpv
 
   autoload :Request, 'sermepa_web_tpv/request'
   autoload :Response, 'sermepa_web_tpv/response'
+  autoload :Signature, 'sermepa_web_tpv/signature'
 
 end
 require 'sermepa_web_tpv/persistence/active_record'

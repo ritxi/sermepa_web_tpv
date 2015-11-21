@@ -61,7 +61,7 @@ module Dummy
     config.assets.version = '1.0'
 
     config.web_tpv.bank_url = 'https://sis-t.sermepa.es:25443/sis/realizarPago'
-    config.web_tpv.response_host = 'my-comerce.com'
+    config.web_tpv.response_host = 'https://my-comerce.com'
     config.web_tpv.merchant_code = '999008881'
     config.web_tpv.terminal = 1
     config.web_tpv.callback_response_path = '/sample_URL_Notif.php'

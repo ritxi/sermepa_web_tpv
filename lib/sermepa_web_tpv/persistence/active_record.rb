@@ -4,7 +4,7 @@ module SermepaWebTpv
       def transaction_number
         generate_transaction_number! if transaction.new_record?
 
-        transaction.send(transaction_number_attribute)
+        transaction.send(transaction_number_attribute).to_s
       end
 
       def transaction_amount

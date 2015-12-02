@@ -8,7 +8,7 @@ module SermepaWebTpv
   @@transaction_model_amount_attribute = :amount
 
   mattr_accessor :bank_url
-  @@bank_url = 'https://sis-t.sermepa.es:25443/sis/realizarPago'
+  @@bank_url = 'https://sis-t.redsys.es:25443/sis/realizarPago'
 
   mattr_accessor :terminal
   @@terminal = 1

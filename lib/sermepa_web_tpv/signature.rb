@@ -19,8 +19,7 @@ module SermepaWebTpv
       end
 
       def cipher
-        @cipher ||= Mcrypt.new(:tripledes, :cbc, merchant_key,
-                               iv, :zeros)
+        Mcrypt.new(:tripledes, :cbc, merchant_key, iv, :zeros)
       end
 
       def digestor

@@ -25,7 +25,7 @@ module SermepaWebTpv
 
     def merchant_paramters_json
       @merchant_paramters_json ||=
-        Base64.urlsafe_decode64(merchant_parameters)
+        Base64.urlsafe_decode64(merchant_parameters.split("\n").join(''))
     end
 
     def merchant_parameters_hash

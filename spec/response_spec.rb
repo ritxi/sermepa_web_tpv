@@ -9,7 +9,7 @@ describe SermepaWebTpv::Response do
   end
 
   let(:signature) do
-    'Kl27JT6ZK46E8CdLJOTg3+fv9yBXamKoIr3pIHi7i90='
+    'Kl27JT6ZK46E8CdLJOTg3-fv9yBXamKoIr3pIHi7i90='
   end
 
   let(:params) do

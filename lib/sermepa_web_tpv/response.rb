@@ -7,7 +7,6 @@ module SermepaWebTpv
       merchant_parameters_hash['Ds_Order']
     end
 
-
     def valid?
       params['Ds_Signature'] == signature
     end
@@ -17,7 +16,7 @@ module SermepaWebTpv
     end
 
     def signature
-      Signature.new(self).signature
+      Signature.new(self).signature.gsub!(/[+\/]/, '+' => '-', '/' => '_')
     end
 
     def merchant_parameters

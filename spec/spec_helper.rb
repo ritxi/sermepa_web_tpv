@@ -7,6 +7,7 @@ require File.expand_path("../dummy/config/environment.rb",  __FILE__)
 #require "rspec/rails"
 require 'rspec/expectations'
 require 'sermepa_web_tpv'
+require 'pry-debugger'
 
 #Rails.backtrace_cleaner.remove_silencers!
 

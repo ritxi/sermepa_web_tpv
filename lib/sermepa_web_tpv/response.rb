@@ -16,7 +16,7 @@ module SermepaWebTpv
     end
 
     def signature
-      Signature.new(self).signature.gsub!(/[+\/]/, '+' => '-', '/' => '_')
+      Signature.new(self).signature.gsub(/[+\/]/, '+' => '-', '/' => '_')
     end
 
     def merchant_parameters
